@@ -4,7 +4,7 @@
 
 int main(void)
 {
-   int i, M[32], E[48];
+   int i, M[32], E[48], k[48];
    unsigned semilla = (unsigned)time(NULL);
 //Generación del número aleatoreo de 32 bits
 //Mostramos en pantalla y guardamos la información en la matriz M.
@@ -23,6 +23,7 @@ int main(void)
 }
 	printf("\n");
 //Mostramos Matriz M
+	printf("Matriz de entrada: ");
 	i=1;
 	while(i<=32){
 		printf("%d", M[i]);
@@ -81,11 +82,28 @@ int main(void)
 	E[48]=M[1];
 //Mostramos la nueva matriz de expación E.
 	i=1;
-	while(i<=32)
+	printf("Matriz de expanción E: ");
+	while(i<=48)
 	{
 		printf("%d", E[i]);
 	i++;
 	}
+	printf("\n");
+
+//Creamos la clave k, para luego aplicar la función XOR con la matriz E
+
+ srand(semilla);
+	printf("clave k: ");
+   for (i = 1; i <= 48; i++){
+	if(rand()%2 ==0){
+		printf("%d", 0);
+		k[i]=0;
+	}
+	else{
+		printf("%d", 1);
+		k[i]=1;
+	}
+}
 	printf("\n");
 		
    return 0;
