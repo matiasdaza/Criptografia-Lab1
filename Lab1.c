@@ -106,6 +106,10 @@ int main(void)
 }
 	printf("\n");
 		
+//Falta agregar lo de la función XOR
+
+
+
    return 0;
 } 
 
