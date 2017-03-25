@@ -128,7 +128,7 @@ int main(void)
         if(y==6){
             x=0;
             y=0;
-            printf("Matriz Ba: ");
+            printf("Matriz B%d: ", indice);
             while(x<6)
             {
                 printf("%d", Ba[x]);
@@ -175,9 +175,10 @@ void filasColumnas(int Ba[48], int indice){
     printf(" Columnas = %d", c);
     printf("\n");
     FILE *archivo=NULL; //Creamos la variable para leer Archivo
-    archivo = fopen ("S1.txt", "r"); //la r es solo para leer.
+    
 
     if(indice ==1){ 
+        archivo = fopen ("S1.txt", "r"); //la r es solo para leer.
         int Matriz[15][15]; 
         if(archivo != NULL)
         {
@@ -195,19 +196,145 @@ void filasColumnas(int Ba[48], int indice){
             
         }       
     }
-    if(indice ==2){}
+    if(indice ==2){
+        archivo = fopen ("S2.txt", "r"); //la r es solo para leer.
+        int Matriz[15][15]; 
+        if(archivo != NULL)
+        {
+            printf("\n Caja S2: \n\n");
+            for(i=0;i<4;i++){
+                for(j=0;j<16;j++){
+                    fscanf(archivo, "%d", &Matriz[i][j]);
+                    printf("%d ", Matriz[i][j]);
+                }
+            printf("\n\n");
+            }
+            printf("C%d: %d \n", indice, Matriz[r][c] );
 
-    if(indice ==3){}
 
-    if(indice ==4){}
+            
+        }      
+    }
 
-    if(indice ==5){}
+    if(indice ==3){
+        archivo = fopen ("S3.txt", "r"); //la r es solo para leer.
+        int Matriz[15][15]; 
+        if(archivo != NULL)
+        {
+            printf("\n Caja S3: \n\n");
+            for(i=0;i<4;i++){
+                for(j=0;j<16;j++){
+                    fscanf(archivo, "%d", &Matriz[i][j]);
+                    printf("%d ", Matriz[i][j]);
+                }
+            printf("\n\n");
+            }
+            printf("C%d: %d \n", indice, Matriz[r][c] );
 
-    if(indice ==6){}
 
-    if(indice ==7){}
+            
+        }      
+    }
 
-    if(indice ==8){}
+    if(indice ==4){
+        archivo = fopen ("S4.txt", "r"); //la r es solo para leer.
+        int Matriz[15][15]; 
+        if(archivo != NULL)
+        {
+            printf("\n Caja S4: \n\n");
+            for(i=0;i<4;i++){
+                for(j=0;j<16;j++){
+                    fscanf(archivo, "%d", &Matriz[i][j]);
+                    printf("%d ", Matriz[i][j]);
+                }
+            printf("\n\n");
+            }
+            printf("C%d: %d \n", indice, Matriz[r][c] );
+
+
+            
+        }      
+    }
+
+    if(indice ==5){
+        archivo = fopen ("S5.txt", "r"); //la r es solo para leer.
+        int Matriz[15][15]; 
+        if(archivo != NULL)
+        {
+            printf("\n Caja S5: \n\n");
+            for(i=0;i<4;i++){
+                for(j=0;j<16;j++){
+                    fscanf(archivo, "%d", &Matriz[i][j]);
+                    printf("%d ", Matriz[i][j]);
+                }
+            printf("\n\n");
+            }
+            printf("C%d: %d \n", indice, Matriz[r][c] );
+
+
+            
+        }      
+    }
+
+    if(indice ==6){
+        archivo = fopen ("S6.txt", "r"); //la r es solo para leer.
+        int Matriz[15][15]; 
+        if(archivo != NULL)
+        {
+            printf("\n Caja S6: \n\n");
+            for(i=0;i<4;i++){
+                for(j=0;j<16;j++){
+                    fscanf(archivo, "%d", &Matriz[i][j]);
+                    printf("%d ", Matriz[i][j]);
+                }
+            printf("\n\n");
+            }
+            printf("C%d: %d \n", indice, Matriz[r][c] );
+
+
+            
+        }      
+    }
+
+    if(indice ==7){
+        archivo = fopen ("S7.txt", "r"); //la r es solo para leer.
+        int Matriz[15][15]; 
+        if(archivo != NULL)
+        {
+            printf("\n Caja S7: \n\n");
+            for(i=0;i<4;i++){
+                for(j=0;j<16;j++){
+                    fscanf(archivo, "%d", &Matriz[i][j]);
+                    printf("%d ", Matriz[i][j]);
+                }
+            printf("\n\n");
+            }
+            printf("C%d: %d \n", indice, Matriz[r][c] );
+
+
+            
+        }      
+    }
+
+    if(indice ==8){
+        archivo = fopen ("S8.txt", "r"); //la r es solo para leer.
+        int Matriz[15][15]; 
+        if(archivo != NULL)
+        {
+            printf("\n Caja S8: \n\n");
+            for(i=0;i<4;i++){
+                for(j=0;j<16;j++){
+                    fscanf(archivo, "%d", &Matriz[i][j]);
+                    printf("%d ", Matriz[i][j]);
+                }
+            printf("\n\n");
+            }
+            printf("C%d: %d \n", indice, Matriz[r][c] );
+
+
+            
+        }      
+    }
 
     fclose (archivo);
 
