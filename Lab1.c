@@ -2,11 +2,11 @@
 #include <stdlib.h>
 #include <time.h>
 
-void filasColumnas(int Ba[48]);
+void filasColumnas(int Ba[48], int indice);
 
 int main(void)
 {
-   int i, M[32], E[48], k[48], B[48], Ba[48], x=0, y=0;
+   int i, M[32], E[48], k[48], B[48], Ba[48], x=0, y=0, indice=1;
    unsigned semilla = (unsigned)time(NULL);
 //Generación del número aleatoreo de 32 bits
 //Mostramos en pantalla y guardamos la información en la matriz M.
@@ -135,7 +135,9 @@ int main(void)
                 x++;
                    
             }
-            filasColumnas(Ba);
+            
+            filasColumnas(Ba, indice);
+            indice=indice+1;
             printf("\n");
            
         }
@@ -164,12 +166,49 @@ int main(void)
 }
 
 
-void filasColumnas(int Ba[48]){
-    int r, c;   
+void filasColumnas(int Ba[48], int indice){
+    int r, c, i, j;   
     r= Ba[5]*1 + Ba[0]*2;    // representación de la fila (r)
+    printf(" Indice: %d", indice);
     printf(" Fila = %d", r);
     c=  Ba[4]*1 + Ba[3]*2 + Ba[2]*4 + Ba[1]*8;
     printf(" Columnas = %d", c);
     printf("\n");
+    FILE *archivo=NULL; //Creamos la variable para leer Archivo
+    archivo = fopen ("S1.txt", "r"); //la r es solo para leer.
+
+    if(indice ==1){ 
+        int Matriz[15][15]; 
+        if(archivo != NULL)
+        {
+            printf("\n Caja S1: \n\n");
+            for(i=0;i<4;i++){
+                for(j=0;j<16;j++){
+                    fscanf(archivo, "%d", &Matriz[i][j]);
+                    printf("%d ", Matriz[i][j]);
+                }
+            printf("\n\n");
+            }
+            printf("C%d: %d \n", indice, Matriz[r][c] );
+
+
+            
+        }       
+    }
+    if(indice ==2){}
+
+    if(indice ==3){}
+
+    if(indice ==4){}
+
+    if(indice ==5){}
+
+    if(indice ==6){}
+
+    if(indice ==7){}
+
+    if(indice ==8){}
+
+    fclose (archivo);
 
 }
