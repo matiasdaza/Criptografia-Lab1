@@ -2,12 +2,14 @@
 #include <stdlib.h>
 #include <time.h>
 
-void filasColumnas(int Ba[48], int indice);
+int filasColumnas(int Ba[48], int indice);
+void Permutacion(int C[32]);
 
 int main(void)
 {
-   int i, M[32], E[48], k[48], B[48], Ba[48], x=0, y=0, indice=1;
+   int i, M[32], E[48], k[48], B[48], Ba[48], x=0, y=0, indice=1, S=0, p=0, d=0, C[32], aux[4], resto, m, P[32];
    unsigned semilla = (unsigned)time(NULL);
+   FILE *archivo=NULL;
 //Generación del número aleatoreo de 32 bits
 //Mostramos en pantalla y guardamos la información en la matriz M.
    
@@ -136,11 +138,45 @@ int main(void)
                    
             }
             
-            filasColumnas(Ba, indice);
-            indice=indice+1;
+            S=filasColumnas(Ba, indice);
             printf("\n");
-           
+            printf("Este es el valor de S: %d ", S);
+            printf("\n");
+            p=0; 
+            while(S >= 2){ //Mientras el dividendo sea mayor o igual que el divisor, es decir, mayor o igual que 2.
+                resto = S % 2;
+                if(resto == 1){
+                    aux[p] = 1; //Si el resto es igual a 1 concatenamos 1 a la variable string llamada binario
+                }else{
+                    aux[p] = 0; // Sino concatemanos 0
+                }
+                S = S/2; // Actualizamos el valor del dividendo dividiendolo entre 2.
+                p++;
+            }
+            if(S == 1){
+                aux[p] = 1; // Por último sí el valor final del dividendo es 1 concatenamos 1 sino concatenamos 0.
+            }else{
+                aux[p] = 0; 
+            }           
+            d=p;
+            m=(4*indice)-1;
+            indice=indice+1;
+            p=0;
+            while(p<4){
+                
+                if(p>d){
+                    //printf("0 - ");
+                    C[m]=0;
+                }else{
+                    //printf("%d - ", C[p]);
+                    C[m]=aux[p];
+            }
+                p++;
+                m--;
+            }
         }
+    printf("\n");
+           
     }
 
     i=1;
@@ -159,14 +195,42 @@ int main(void)
     printf("\n");
     printf("\n");
     printf("\n");
+    i=0;
+    y=1;
+    printf("Matriz C: ");
+    while(i<32)
+    {
+        printf("%d", C[i]);
+        i++;
+        if(y==4){
+            printf(" ");
+            y=0;
+        }
+        y++;
+       
+    }
 
+    printf("\n");
 
-
+       
+    printf("\nasdasdas \n");
+    archivo = fopen ("P.txt", "r"); //la r es solo para leer.
+    if(archivo != NULL){
+        for(i=0;i<32;i++){
+            fscanf(archivo, "%d", &x);
+            P[i]=C[x];
+        }
+    printf("\n\n");
+    }
+    for(i=0;i<32;i++){
+        printf("%d ", P[i]);
+    }                
+    fclose (archivo);
    return 0;
 }
 
 
-void filasColumnas(int Ba[48], int indice){
+int filasColumnas(int Ba[48], int indice){
     int r, c, i, j;   
     r= Ba[5]*1 + Ba[0]*2;    // representación de la fila (r)
     printf(" Indice: %d", indice);
@@ -190,7 +254,8 @@ void filasColumnas(int Ba[48], int indice){
                 }
             printf("\n\n");
             }
-            printf("C%d: %d \n", indice, Matriz[r][c] );
+            printf("C%d: %d \n", indice, Matriz[r][c]);
+            return Matriz[r][c];
 
 
             
@@ -210,6 +275,7 @@ void filasColumnas(int Ba[48], int indice){
             printf("\n\n");
             }
             printf("C%d: %d \n", indice, Matriz[r][c] );
+            return Matriz[r][c];
 
 
             
@@ -230,7 +296,7 @@ void filasColumnas(int Ba[48], int indice){
             printf("\n\n");
             }
             printf("C%d: %d \n", indice, Matriz[r][c] );
-
+            return Matriz[r][c];
 
             
         }      
@@ -250,7 +316,7 @@ void filasColumnas(int Ba[48], int indice){
             printf("\n\n");
             }
             printf("C%d: %d \n", indice, Matriz[r][c] );
-
+            return Matriz[r][c];
 
             
         }      
@@ -270,7 +336,7 @@ void filasColumnas(int Ba[48], int indice){
             printf("\n\n");
             }
             printf("C%d: %d \n", indice, Matriz[r][c] );
-
+            return Matriz[r][c];
 
             
         }      
@@ -290,7 +356,7 @@ void filasColumnas(int Ba[48], int indice){
             printf("\n\n");
             }
             printf("C%d: %d \n", indice, Matriz[r][c] );
-
+            return Matriz[r][c];
 
             
         }      
@@ -310,7 +376,7 @@ void filasColumnas(int Ba[48], int indice){
             printf("\n\n");
             }
             printf("C%d: %d \n", indice, Matriz[r][c] );
-
+            return Matriz[r][c];
 
             
         }      
@@ -330,7 +396,7 @@ void filasColumnas(int Ba[48], int indice){
             printf("\n\n");
             }
             printf("C%d: %d \n", indice, Matriz[r][c] );
-
+            return Matriz[r][c];
 
             
         }      
@@ -339,3 +405,4 @@ void filasColumnas(int Ba[48], int indice){
     fclose (archivo);
 
 }
+
