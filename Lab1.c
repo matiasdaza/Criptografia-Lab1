@@ -15,29 +15,30 @@ int main(void)
    
    srand(semilla);
 
-   for (i = 1; i <= 32; i++){
-    if(rand()%2 ==0){
-        //printf("%d", 0);
-        M[i]=0;
+    for (i = 1; i <= 32; i++){
+        if(rand()%2 ==0){
+            M[i]=0;
+        }
+        else{
+            M[i]=1;
+        }
     }
-    else{
-        //printf("%d", 1);
-        M[i]=1;
-    }
-}
-    //printf("\n");
+    
+
 //Mostramos Matriz M
+
     printf("Matriz de entrada: ");
     i=1;
     while(i<=32){
         printf("%d", M[i]);
-    i++;
+        i++;
     }
     printf("\n");
     printf("\n");
     printf("\n");
 
 //Ahora con la función de expanción E vamos a permutar los valores de la Matriz M.
+
     E[1]=M[32];
     E[2]=M[1];
     E[3]=M[2];
@@ -86,7 +87,9 @@ int main(void)
     E[46]=M[31];
     E[47]=M[32];
     E[48]=M[1];
+
 //Mostramos la nueva matriz de expación E.
+    
     i=1;
     printf("Matriz de expanción E: ");
     while(i<=48)
@@ -212,8 +215,6 @@ int main(void)
 
     printf("\n");
 
-       
-    printf("\nasdasdas \n");
     archivo = fopen ("P.txt", "r"); //la r es solo para leer.
     if(archivo != NULL){
         for(i=0;i<32;i++){
