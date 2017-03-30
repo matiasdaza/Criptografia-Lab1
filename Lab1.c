@@ -3,7 +3,6 @@
 #include <time.h>
 
 int filasColumnas(int Ba[48], int indice);
-void Permutacion(int C[32]);
 
 int main(void)
 {
