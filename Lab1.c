@@ -37,7 +37,7 @@ int main(void)
     printf("\n");
     printf("\n");
 
-//Ahora con la función de expanción E vamos a permutar los valores de la Matriz M.
+//Ahora con la función de expansión E vamos a permutar los valores de la Matriz M.
 
     E[1]=M[32];
     E[2]=M[1];
@@ -88,10 +88,10 @@ int main(void)
     E[47]=M[32];
     E[48]=M[1];
 
-//Mostramos la nueva matriz de expación E.
+//Mostramos la nueva matriz de expansión E.
 
     i=1;
-    printf("Matriz de expanción E: ");
+    printf("Matriz de expansión E: ");
     while(i<=48)
     {
         printf("%d", E[i]);
@@ -104,7 +104,7 @@ int main(void)
 //Creamos la clave k, para luego aplicar la función XOR con la matriz E
 
     srand(semilla);
-    printf("clave k: ");
+    printf("Clave K: ");
     for (i = 1; i <= 48; i++){
         if(rand()%2 ==0){
             printf("%d", 0);
@@ -142,7 +142,7 @@ int main(void)
                    
             }
             
-            S=filasColumnas(Ba, indice); //Ingresamos valore a las cajas S para completar el arreglo C
+            S=filasColumnas(Ba, indice); //Ingresamos valores a las cajas S para completar el arreglo C
             
             //Transformamos el valor dado a binario y lo ingresamos al arreglo C
 
@@ -152,13 +152,13 @@ int main(void)
                 if(resto == 1){
                     aux[p] = 1; //Si el resto es igual a 1 concatenamos 1 a la variable string llamada binario
                 }else{
-                    aux[p] = 0; // Sino concatemanos 0
+                    aux[p] = 0; // Sino concatenamos 0
                 }
                 S = S/2; // Actualizamos el valor del dividendo dividiendolo entre 2.
                 p++;
             }
             if(S == 1){
-                aux[p] = 1; // Por último sí el valor final del dividendo es 1 concatenamos 1 sino concatenamos 0.
+                aux[p] = 1; // Por último si el valor final del dividendo es 1 concatenamos 1 sino concatenamos 0.
             }else{
                 aux[p] = 0; 
             }           
