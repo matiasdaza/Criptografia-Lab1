@@ -89,7 +89,7 @@ int main(void)
     E[48]=M[1];
 
 //Mostramos la nueva matriz de expación E.
-    
+
     i=1;
     printf("Matriz de expanción E: ");
     while(i<=48)
@@ -103,23 +103,24 @@ int main(void)
 
 //Creamos la clave k, para luego aplicar la función XOR con la matriz E
 
- srand(semilla);
+    srand(semilla);
     printf("clave k: ");
-   for (i = 1; i <= 48; i++){
-    if(rand()%2 ==0){
-        printf("%d", 0);
-        k[i]=0;
+    for (i = 1; i <= 48; i++){
+        if(rand()%2 ==0){
+            printf("%d", 0);
+            k[i]=0;
+        }
+        else{
+            printf("%d", 1);
+            k[i]=1;
+        }
     }
-    else{
-        printf("%d", 1);
-        k[i]=1;
-    }
-}
     printf("\n");
     printf("\n");
     printf("\n");
        
-//Función XOR, guardada en la matriz B
+//Función XOR, guardada en la matriz B, a medida que hace el función XOR, vamos separando de a 6 bits
+// para crear los subvectores B e ingresarlos a las cajas S. 
 
     for(i=1; i<=48; i++){
         if (E[i] == k[i]){
@@ -141,10 +142,13 @@ int main(void)
                    
             }
             
-            S=filasColumnas(Ba, indice);
+            S=filasColumnas(Ba, indice); //Ingresamos valore a las cajas S para completar el arreglo C
             printf("\n");
             printf("Este es el valor de S: %d ", S);
             printf("\n");
+
+            //Transformamos el valor dado a binario y lo ingresamos al arreglo C
+
             p=0; 
             while(S >= 2){ //Mientras el dividendo sea mayor o igual que el divisor, es decir, mayor o igual que 2.
                 resto = S % 2;
@@ -213,20 +217,22 @@ int main(void)
        
     }
 
-    printf("\n");
+    printf("\n \n");
 
+//Se finaliza la función f, permutando C con la tabla fija P.
+    printf("Arreglo final luego de la permutación P: ");
     archivo = fopen ("P.txt", "r"); //la r es solo para leer.
     if(archivo != NULL){
         for(i=0;i<32;i++){
             fscanf(archivo, "%d", &x);
             P[i]=C[x];
         }
-    printf("\n\n");
     }
     for(i=0;i<32;i++){
-        printf("%d ", P[i]);
+        printf("%d", P[i]);
     }                
     fclose (archivo);
+    printf("\n \n");
    return 0;
 }
 
