@@ -143,10 +143,7 @@ int main(void)
             }
             
             S=filasColumnas(Ba, indice); //Ingresamos valore a las cajas S para completar el arreglo C
-            printf("\n");
-            printf("Este es el valor de S: %d ", S);
-            printf("\n");
-
+            
             //Transformamos el valor dado a binario y lo ingresamos al arreglo C
 
             p=0; 
